@@ -1,0 +1,51 @@
+﻿<Window x:Class="Supermarket_Inventory_Management.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket_Inventory_Management"
+        mc:Ignorable="d"
+        Title="Người dùng" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Nhập liệu -->
+        <UniformGrid Grid.Row="0" Columns="3" Margin="0,0,0,10">
+            <TextBlock Text="Tên đăng nhập"/>
+            <TextBlock Text="Quyền"/>
+            <TextBlock Text="Tên hiển thị"/>
+
+            <TextBox x:Name="txtUserName" Height="30" FontSize="13" />
+            <ComboBox x:Name="cbRole" DisplayMemberPath="TenRole" SelectedValuePath="Id" Height="30"/>
+            <TextBox x:Name="txtDisplayName" Height="30" FontSize="13" />
+        </UniformGrid>
+
+        <!-- Nút -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Content="Thêm" Width="100" Margin="5" Click="AddUser_Click"/>
+            <Button Content="Sửa" Width="100" Margin="5" Click="EditUser_Click"/>
+            <Button Content="Xoá" Width="100" Margin="5" Click="DeleteUser_Click"/>
+            <Button Content="Đổi pass" Width="100" Margin="5" Click="ChangPassUser_Click" Height="32"/>
+        </StackPanel>
+
+        <!-- Danh sách người dùng -->
+        <DataGrid x:Name="dgUser" Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  SelectionMode="Single"
+                  SelectionChanged="dgUser_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Tên đăng nhập" Binding="{Binding UserName}" Width="150"/>
+                <DataGridTextColumn Header="Chức vụ" Binding="{Binding IdRoleNavigation.DisplayName}" Width="100"/>
+                <DataGridTextColumn Header="Tên hiển thị" Binding="{Binding DisplayName}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

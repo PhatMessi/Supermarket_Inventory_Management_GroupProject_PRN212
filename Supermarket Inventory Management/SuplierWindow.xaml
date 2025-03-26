@@ -1,0 +1,58 @@
+﻿<Window x:Class="Supermarket_Inventory_Management.SuplierWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Supermarket_Inventory_Management"
+        mc:Ignorable="d"
+        Title="SuplierWindow" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Nhập liệu -->
+        <UniformGrid Grid.Row="0" Columns="6" Margin="0,0,0,10">
+            <TextBlock Text="Tên nhà cung cấp"/>
+            <TextBlock Text="Địa chỉ"/>
+            <TextBlock Text="Điện thoại"/>
+            <TextBlock Text="Email"/>
+            <TextBlock Text="Thông tin thêm"/>
+            <TextBlock Text="Ngày hợp tác"/>
+
+            <TextBox x:Name="txtTen" Height="30" FontSize="13" />
+            <TextBox x:Name="txtDiaChi" Height="30" FontSize="13" />
+            <TextBox x:Name="txtDienThoai" Height="30" FontSize="13" />
+            <TextBox x:Name="txtEmail" Height="30" FontSize="13" />
+            <TextBox x:Name="txtThongTinThem" Height="30" FontSize="13" />
+            <DatePicker x:Name="dpNgayHopTac" Height="30" />
+        </UniformGrid>
+
+        <!-- Nút -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Content="Thêm" Width="100" Margin="10" Click="AddSup_Click"/>
+            <Button Content="Sửa" Width="100" Margin="10" Click="EditSup_Click"/>
+            <Button Content="Xoá" Width="100" Margin="10" Click="DeleteSup_Click" Height="36"/>
+            <Button Content="Clear" Width="100" Margin="10" Click="Clear_Click" Height="38"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="dgNCC" Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  SelectionChanged="dgNCC_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Tên nhà cung cấp" Binding="{Binding DisplayName}" Width="150"/>
+                <DataGridTextColumn Header="Địa chỉ" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn Header="Điện thoại" Binding="{Binding Phone}" Width="100"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
+                <DataGridTextColumn Header="Thông tin thêm" Binding="{Binding MoreInfo}" Width="150"/>
+                <DataGridTextColumn Header="Ngày hợp tác" Binding="{Binding ContractDate}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
