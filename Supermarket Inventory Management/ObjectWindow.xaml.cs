@@ -133,18 +133,29 @@ namespace Supermarket_Inventory_Management
             var confirm = MessageBox.Show("Bạn có chắc muốn xóa vật tư này?", "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (confirm != MessageBoxResult.Yes) return;
 
-            try
+            if (dgVatTu.SelectedItem is Models.Object selectedO)
             {
-                DataProvider.Context.Objects.Remove(selectedObj);
-                DataProvider.Context.SaveChanges();
-                MessageBox.Show("Xóa vật tư thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                LoadData();
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Không thể xóa vật tư này vì nó đang được sử dụng ở nơi khác.\n\nChi tiết lỗi:\n" + ex.Message,
-                                "Lỗi khi xóa", MessageBoxButton.OK, MessageBoxImage.Error);
+                string objId = selectedO.Id;
+
+                try
+                {
+                    string sql = $@"
+                        BEGIN TRANSACTION;
+                            DELETE FROM InputInfo WHERE IdObject = '{objId}';
+                            DELETE FROM OutputInfo WHERE IdObject = '{objId}';
+                            DELETE FROM Object WHERE Id = '{objId}';
+                        COMMIT;";
+
+                    DataProvider.Context.Database.ExecuteSqlRaw(sql);
+
+                    MessageBox.Show("Xóa vật tư thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadData();
+                    ClearFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa vật tư.\n\nChi tiết lỗi:\n" + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
         private void ClearFields()

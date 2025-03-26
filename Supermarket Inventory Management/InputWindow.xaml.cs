@@ -44,8 +44,7 @@ namespace Supermarket_Inventory_Management
                 return;
             }    
 
-            try
-            {
+            
                 var input = new Input
                 {
                     Id = Guid.NewGuid().ToString(),
@@ -70,11 +69,8 @@ namespace Supermarket_Inventory_Management
                 MessageBox.Show("Thêm nhập kho thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoadData();
                 ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Đã xảy ra lỗi khi thêm nhập kho.\n\nChi tiết lỗi:\n" + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
+
         }
 
         private void EditInput_Click(object sender, RoutedEventArgs e)
