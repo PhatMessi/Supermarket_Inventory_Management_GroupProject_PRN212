@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Supermarket_Inventory_Management"
         mc:Ignorable="d"
         Title="SuplierWindow" Height="500" Width="800">
-    <Grid Margin="10">
+    <Grid Margin="10" Background="#67BAE3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -15,27 +15,27 @@
 
         <!-- Nhập liệu -->
         <UniformGrid Grid.Row="0" Columns="6" Margin="0,0,0,10">
-            <TextBlock Text="Tên nhà cung cấp"/>
-            <TextBlock Text="Địa chỉ"/>
-            <TextBlock Text="Điện thoại"/>
-            <TextBlock Text="Email"/>
-            <TextBlock Text="Thông tin thêm"/>
-            <TextBlock Text="Ngày hợp tác"/>
+            <TextBlock Text="Tên nhà cung cấp" FontWeight="Bold"/>
+            <TextBlock Text="Địa chỉ" FontWeight="Bold"/>
+            <TextBlock Text="Điện thoại" FontWeight="Bold"/>
+            <TextBlock Text="Email" FontWeight="Bold"/>
+            <TextBlock Text="Thông tin thêm" FontWeight="Bold"/>
+            <TextBlock Text="Ngày hợp tác" FontWeight="Bold"/>
 
-            <TextBox x:Name="txtTen" Height="30" FontSize="13" />
-            <TextBox x:Name="txtDiaChi" Height="30" FontSize="13" />
-            <TextBox x:Name="txtDienThoai" Height="30" FontSize="13" />
-            <TextBox x:Name="txtEmail" Height="30" FontSize="13" />
-            <TextBox x:Name="txtThongTinThem" Height="30" FontSize="13" />
-            <DatePicker x:Name="dpNgayHopTac" Height="30" />
+            <TextBox x:Name="txtTen" Height="30" FontSize="13" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtDiaChi" Height="30" FontSize="13" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtDienThoai" Height="30" FontSize="13" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtEmail" Height="30" FontSize="13" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtThongTinThem" Height="30" FontSize="13" VerticalContentAlignment="Center"/>
+            <DatePicker x:Name="dpNgayHopTac" Height="30" VerticalContentAlignment="Center"/>
         </UniformGrid>
 
         <!-- Nút -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-            <Button Content="Thêm" Width="100" Margin="10" Click="AddSup_Click"/>
-            <Button Content="Sửa" Width="100" Margin="10" Click="EditSup_Click"/>
-            <Button Content="Xoá" Width="100" Margin="10" Click="DeleteSup_Click" Height="36"/>
-            <Button Content="Clear" Width="100" Margin="10" Click="Clear_Click" Height="38"/>
+            <Button Content="Thêm" Width="100" Margin="10" Click="AddSup_Click" FontWeight="Bold" Background="#0EC013"/>
+            <Button Content="Sửa" Width="100" Margin="10" Click="EditSup_Click" FontWeight="Bold" Background="#1B81D5"/>
+            <Button Content="Xoá" Width="100" Margin="10" Click="DeleteSup_Click" Height="36" FontWeight="Bold" Background="Red"/>
+            <Button Content="Clear" Width="100" Margin="10" Click="Clear_Click" Height="38" FontWeight="Bold" Background="#CCECC9"/>
         </StackPanel>
 
         <!-- DataGrid -->

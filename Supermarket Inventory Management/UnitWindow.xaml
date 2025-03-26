@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Supermarket_Inventory_Management"
         mc:Ignorable="d"
         Title="UnitWindow" Height="500" Width="400">
-    <Grid Margin="10">
+    <Grid Margin="10" Background="#B73E33">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -15,16 +15,16 @@
 
         <!-- Ô nhập -->
         <StackPanel Grid.Row="0" Margin="0,0,0,10">
-            <TextBlock Text="Đơn vị đo" Margin="0,0,0,5"/>
-            <TextBox x:Name="txtTenDonViDo" Height="30" FontSize="14"/>
+            <TextBlock Text="Đơn vị đo" Margin="0,0,0,5" FontWeight="Bold" Foreground="White"/>
+            <TextBox x:Name="txtTenDonViDo" Height="30" FontSize="14" VerticalContentAlignment="Center"/>
         </StackPanel>
 
         <!-- Nút thao tác -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">
-            <Button Content="Thêm" Width="80" Margin="10" Click="AddUnit_Click"/>
-            <Button Content="Sửa" Width="78" Margin="10" Click="EditUnit_Click"/>
-            <Button Content="Xóa" Width="74" Margin="10" Click="DeleteUnit_Click" Height="28"/>
-            <Button Content="Clear" Width="74" Margin="5" Click="Clear_Click" Height="28"/>
+            <Button Content="Thêm" Width="80" Margin="10" Click="AddUnit_Click" FontWeight="Bold" Background="#0EC013"/>
+            <Button Content="Sửa" Width="78" Margin="10" Click="EditUnit_Click" FontWeight="Bold" Background="#67BAE3"/>
+            <Button Content="Xóa" Width="74" Margin="10" Click="DeleteUnit_Click" Height="28" FontWeight="Bold" Background="Red"/>
+            <Button Content="Clear" Width="74" Margin="5" Click="Clear_Click" Height="28" FontWeight="Bold" Background="#CCECC9"/>
         </StackPanel>
 
         <!-- Bảng danh sách -->

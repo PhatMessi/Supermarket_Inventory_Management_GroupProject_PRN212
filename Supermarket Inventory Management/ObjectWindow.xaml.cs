@@ -147,7 +147,6 @@ namespace Supermarket_Inventory_Management
                         COMMIT;";
 
                     DataProvider.Context.Database.ExecuteSqlRaw(sql);
-
                     MessageBox.Show("Xóa vật tư thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     LoadData();
                     ClearFields();

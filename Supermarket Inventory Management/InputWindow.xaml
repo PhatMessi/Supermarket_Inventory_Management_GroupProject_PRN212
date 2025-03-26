@@ -8,7 +8,7 @@
         Title="InputWindow" Height="500" Width="700"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="10">
+    <Grid Margin="10" Background="Yellow">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -17,27 +17,27 @@
 
         <!-- Form nhập liệu -->
         <UniformGrid Grid.Row="0" Columns="6" Margin="0,0,0,10">
-            <TextBlock Text="Tên vật tư"/>
-            <TextBlock Text="Ngày nhập"/>
-            <TextBlock Text="Số lượng"/>
-            <TextBlock Text="Giá nhập"/>
-            <TextBlock Text="Giá xuất"/>
-            <TextBlock Text="Trạng thái nhập"/>
+            <TextBlock Text="Tên vật tư" FontWeight="Bold"/>
+            <TextBlock Text="Ngày nhập" FontWeight="Bold"/>
+            <TextBlock Text="Số lượng" FontWeight="Bold"/>
+            <TextBlock Text="Giá nhập" FontWeight="Bold"/>
+            <TextBlock Text="Giá xuất" FontWeight="Bold"/>
+            <TextBlock Text="Trạng thái nhập" FontWeight="Bold"/>
 
-            <ComboBox x:Name="cbVatTu" DisplayMemberPath="DisplayName"/>
-            <DatePicker x:Name="dpNgayNhap"/>
-            <TextBox x:Name="txtSoLuong"/>
-            <TextBox x:Name="txtGiaNhap"/>
-            <TextBox x:Name="txtGiaXuat"/>
-            <TextBox x:Name="txtTrangThai"/>
+            <ComboBox x:Name="cbVatTu" DisplayMemberPath="DisplayName" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
+            <DatePicker x:Name="dpNgayNhap" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
+            <TextBox x:Name="txtSoLuong" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
+            <TextBox x:Name="txtGiaNhap" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
+            <TextBox x:Name="txtGiaXuat" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
+            <TextBox x:Name="txtTrangThai" VerticalContentAlignment="Center" Margin="0,0,0,-10"/>
         </UniformGrid>
 
         <!-- Nút thao tác -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
-            <Button Content="Thêm" Width="100" Margin="10" Click="AddInput_Click" RenderTransformOrigin="-0.033,0.854"/>
-            <Button Content="Sửa" Width="100" Margin="10" Click="EditInput_Click"/>
-            <Button Content="Xóa" Width="108" Margin="10" Click="DeleteInput_Click" Height="38"/>
-            <Button Content="Clear" Width="100" Margin="10" Click="Clear_Click" Height="38"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10" >
+            <Button Content="Thêm" Width="100" Margin="10" Click="AddInput_Click" RenderTransformOrigin="-0.033,0.854" FontWeight="Bold" Background="#0EC013"/>
+            <Button Content="Sửa" Width="100" Margin="10" Click="EditInput_Click" FontWeight="Bold" Background="#67BAE3"/>
+            <Button Content="Xóa" Width="108" Margin="10" Click="DeleteInput_Click" Height="38" FontWeight="Bold" Background="Red"/>
+            <Button Content="Clear" Width="100" Margin="10" Click="Clear_Click" Height="38" FontWeight="Bold" Background="#CCECC9"/>
         </StackPanel>
 
         <!-- DataGrid -->
