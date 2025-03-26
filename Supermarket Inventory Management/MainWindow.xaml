@@ -14,7 +14,7 @@
             <Button Content="Nhập kho" Width="100" Margin="5" Click="NhapKho_Click" FontWeight="Bold" Background="Yellow"/>
             <Button Content="Xuất kho" Width="100" Margin="5" Click="XuatKho_Click" FontWeight="Bold" Background="#E6C9A6"/>
             <Button Content="Vật tư" Width="100" Margin="5" Click="VatTu_Click" FontWeight="Bold" Background="Orange"/>
-            <Button Content="Đơn vị đo" Width="100" Margin="5" Click="DonViDo_Click" FontWeight="Bold" Background="#B73E33"/>
+            <Button Content="Đơn vị đo" Width="100" Margin="5" Click="DonViDo_Click" FontWeight="Bold" Background="#F0AA89"/>
             <Button Content="Nhà cung cấp" Width="120" Margin="5" Click="NhaCungCap_Click" FontWeight="Bold" Background="#67BAE3"/>
             <Button Content="Khách hàng" Width="100" Margin="5" Click="KhachHang_Click" FontWeight="Bold" Background="#A65CBF"/>
             <Button Content="Người dùng" Width="100" Margin="5" Click="NguoiDung_Click" FontWeight="Bold"/>
@@ -29,19 +29,19 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="176" Height="89">
                     <StackPanel>
-                        <TextBlock Text="Lượng nhập" Foreground="White" FontWeight="Bold"/>
+                        <TextBlock Text="Lượng nhập" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtNhap" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="199">
                     <StackPanel>
-                        <TextBlock Text="Lượng xuất" Foreground="White" FontWeight="Bold"/>
+                        <TextBlock Text="Lượng xuất" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtXuat" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="199">
                     <StackPanel>
-                        <TextBlock Text="Tồn kho" Foreground="White" FontWeight="Bold"/>
+                        <TextBlock Text="Tồn kho" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtTon" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>
@@ -58,17 +58,19 @@
                 <TextBlock Text="Tìm kiếm:" VerticalAlignment="Center" Margin="0 0 10 0"/>
                 <TextBox x:Name="txtSearch" Width="200" Height="25" TextChanged="txtSearch_TextChanged" VerticalContentAlignment="Center"/>
             </StackPanel>
-            <DataGrid x:Name="dgTonKho"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      CanUserAddRows="False"
-                      HeadersVisibility="Column">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="STT" Binding="{Binding STT}" Width="50"/>
-                    <DataGridTextColumn Header="Tên vật tư" Binding="{Binding TenVatTu}" Width="*" />
-                    <DataGridTextColumn Header="Số lượng tồn" Binding="{Binding SoLuongTon}" Width="100"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
+                <DataGrid x:Name="dgTonKho"
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              CanUserAddRows="False"
+              HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="STT" Binding="{Binding STT}" Width="50"/>
+                        <DataGridTextColumn Header="Tên vật tư" Binding="{Binding TenVatTu}" Width="*" />
+                        <DataGridTextColumn Header="Số lượng tồn" Binding="{Binding SoLuongTon}" Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
         </StackPanel>
     </DockPanel>
 </Window>

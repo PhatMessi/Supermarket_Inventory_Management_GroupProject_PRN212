@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket_Inventory_Management"
         mc:Ignorable="d"
-        Title="SuplierWindow" Height="500" Width="800">
+        Title="Cửa sổ Nhà cung cấp" Height="500" Width="800">
     <Grid Margin="10" Background="#67BAE3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

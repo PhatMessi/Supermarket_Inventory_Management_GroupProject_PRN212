@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket_Inventory_Management"
         mc:Ignorable="d"
-        Title="UnitWindow" Height="500" Width="400">
-    <Grid Margin="10" Background="#B73E33">
+        Title="Cửa sổ Đơn vị đo" Height="500" Width="400">
+    <Grid Margin="10" Background="#F0AA89">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -15,7 +15,7 @@
 
         <!-- Ô nhập -->
         <StackPanel Grid.Row="0" Margin="0,0,0,10">
-            <TextBlock Text="Đơn vị đo" Margin="0,0,0,5" FontWeight="Bold" Foreground="White"/>
+            <TextBlock Text="Đơn vị đo" Margin="0,0,0,5" FontWeight="Bold" Foreground="Black"/>
             <TextBox x:Name="txtTenDonViDo" Height="30" FontSize="14" VerticalContentAlignment="Center"/>
         </StackPanel>
 

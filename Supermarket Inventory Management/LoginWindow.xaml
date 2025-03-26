@@ -35,5 +35,13 @@
                 </StackPanel>
             </StackPanel>
         </Border>
+        <TextBlock HorizontalAlignment="Center" 
+                   Margin="0,23,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="Supermarket grocery product inventory management software" 
+                   VerticalAlignment="Top"
+                   FontSize="19"
+                   FontWeight="Bold"
+                   Foreground="White"/>
     </Grid>
 </Window>

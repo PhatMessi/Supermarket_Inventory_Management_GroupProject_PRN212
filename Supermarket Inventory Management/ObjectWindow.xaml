@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Supermarket_Inventory_Management"
         mc:Ignorable="d"
-        Title="ObjectWindow" Height="500" Width="700">
+        Title="Cửa sổ Vật Tư" Height="500" Width="700">
     <Grid Margin="10" Background="Orange">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
