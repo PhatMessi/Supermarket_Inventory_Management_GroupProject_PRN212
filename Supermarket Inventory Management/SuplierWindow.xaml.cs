@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 using Supermarket_Inventory_Management.Data;
 using Supermarket_Inventory_Management.Models;
 
@@ -127,14 +128,22 @@ namespace Supermarket_Inventory_Management
             try
             {
                 var ncc = DataProvider.Context.Supliers.Find(selected.Id);
-                if (ncc != null)
-                {
-                    DataProvider.Context.Supliers.Remove(ncc);
-                    DataProvider.Context.SaveChanges();
-                    MessageBox.Show("Xóa nhà cung cấp thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LoadData();
-                    ClearFields();
-                }
+                string suplierId= selected.Id.ToString();
+                string sql = $@"
+                        BEGIN TRANSACTION;
+						
+                            DELETE FROM OutputInfo WHERE IdInputInfo in(select id from InputInfo where(IdObject in( Select Id from Object where IdSuplier='{suplierId}')));
+                            DELETE FROM InputInfo WHERE IdObject in( Select Id from Object where IdSuplier='{suplierId}');
+							delete From Object Where IdSuplier = ' {suplierId}';
+							delete from Suplier where Id ='{suplierId}';
+                            
+         
+                        COMMIT;";
+                DataProvider.Context.Database.ExecuteSqlRaw(sql);
+                MessageBox.Show("Xóa nhà cung cấp thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                LoadData();
+
+                ClearFields();
             }
             catch (Exception ex)
             {

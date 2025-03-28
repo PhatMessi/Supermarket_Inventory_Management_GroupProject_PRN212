@@ -8,6 +8,7 @@ using Supermarket_Inventory_Management.Data;
 using Supermarket_Inventory_Management.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Windows.Controls.Primitives;
+using System.Security.Cryptography;
 
 namespace Supermarket_Inventory_Management
 {
@@ -161,13 +162,19 @@ namespace Supermarket_Inventory_Management
                 var input = DataProvider.Context.Inputs
                     .FirstOrDefault(i => i.Id == selectedInputInfo.IdInput);
 
-                DataProvider.Context.InputInfos.Remove(selectedInputInfo);
-                if (input != null)
-                {
-                    DataProvider.Context.Inputs.Remove(input);
-                }
+                string inputId = selectedInputInfo.Id;
+                string sql = $@"
+                        BEGIN TRANSACTION;
+                            DELETE FROM OutputInfo WHERE IdInputInfo = '{inputId}';
+                            DELETE FROM InputInfo WHERE Id = '{inputId}';
+                            
+         
+                        COMMIT;";
 
-                DataProvider.Context.SaveChanges();
+                DataProvider.Context.Database.ExecuteSqlRaw(sql);
+
+
+                
                 LoadData();
                 ClearFields();
             }

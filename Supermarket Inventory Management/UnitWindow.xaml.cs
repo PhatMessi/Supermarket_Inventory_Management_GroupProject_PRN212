@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 using Supermarket_Inventory_Management.Data;
 using Supermarket_Inventory_Management.Models;
 
@@ -116,15 +118,23 @@ namespace Supermarket_Inventory_Management
             try
             {
                 var dvi = DataProvider.Context.Units.Find(selected.Id);
-                if (dvi != null)
-                {
-                    DataProvider.Context.Units.Remove(dvi);
-                    DataProvider.Context.SaveChanges();
-                    MessageBox.Show("Xóa đơn vị đo thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                string dvid = selected.Id.ToString();
+                string sql = $@"
+                        BEGIN TRANSACTION;
+						
+                            DELETE FROM OutputInfo WHERE IdInputInfo in(select id from InputInfo where(IdObject in( Select Id from Object where IdUnit='{dvid}')));
+                            DELETE FROM InputInfo WHERE IdObject in( Select Id from Object where IdUnit='{dvid}');
+							delete From Object Where IdUnit = ' {dvid}';
+							delete from Unit where Id ='{dvid}';
+                            
+         
+                        COMMIT;";
+                DataProvider.Context.Database.ExecuteSqlRaw(sql);
+                MessageBox.Show("Xóa đơn vị đo thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     LoadData();
-                    txtTenDonViDo.Clear();
+                   
                     ClearFields();
-                }
+                
             }
             catch (Exception ex)
             {
