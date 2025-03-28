@@ -29,19 +29,19 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="176" Height="89">
                     <StackPanel>
-                        <TextBlock Text="Lượng nhập" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="Tổng Lượng nhập" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtNhap" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="199">
                     <StackPanel>
-                        <TextBlock Text="Lượng xuất" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="Tổng Lượng xuất" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtXuat" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>
                 <Border Background="#03A9F4" Padding="20" Margin="10" Width="199">
                     <StackPanel>
-                        <TextBlock Text="Tồn kho" Foreground="White" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="Tổng Tồn kho" Foreground="White" FontWeight="Bold" FontSize="15"/>
                         <TextBlock x:Name="txtTon" FontSize="24" Foreground="White"/>
                     </StackPanel>
                 </Border>

@@ -141,8 +141,9 @@ namespace Supermarket_Inventory_Management
                 {
                     string sql = $@"
                         BEGIN TRANSACTION;
-                            DELETE FROM InputInfo WHERE IdObject = '{objId}';
                             DELETE FROM OutputInfo WHERE IdObject = '{objId}';
+                            DELETE FROM InputInfo WHERE IdObject = '{objId}';
+                            
                             DELETE FROM Object WHERE Id = '{objId}';
                         COMMIT;";
 
